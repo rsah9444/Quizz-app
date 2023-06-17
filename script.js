@@ -1,21 +1,57 @@
 // Quiz questions and answers
 const quizData = [
     {
-      question: 'What is the capital of France?',
-      choices: ['Paris', 'London', 'Berlin'],
-      correctAnswer: 'Paris'
+      question: 'What does CPU stand for?',
+      choices: ['Central Processing Unit', 'Computer Personal Unit', 'Central Personal Unit', 'Computer Processing Unit'],
+      correctAnswer: 'Central Processing Unit'
     },
     {
-      question: 'What is the largest planet in our solar system?',
-      choices: ['Jupiter', 'Mars', 'Earth'],
-      correctAnswer: 'Jupiter'
+      question: 'What is the full form of HTML?',
+      choices: ['Hyper Text Markup Language', 'Hyperlinks and Text Markup Language', 'Home Tool Markup Language', 'Hyperlinks Tool Markup Language'],
+      correctAnswer: 'Hyper Text Markup Language'
     },
     {
-      question: 'Who painted the Mona Lisa?',
-      choices: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh'],
-      correctAnswer: 'Leonardo da Vinci'
+      question: 'What is the most popular programming language in 2021?',
+      choices: ['Python', 'JavaScript', 'Java', 'C++'],
+      correctAnswer: 'Python'
+    },
+    {
+      question: 'Which company developed the first smartphone?',
+      choices: ['Apple', 'Samsung', 'Motorola', 'Nokia'],
+      correctAnswer: 'IBM'
+    },
+    {
+      question: 'What does CSS stand for?',
+      choices: ['Cascading Style Sheet', 'Computer Style Sheet', 'Colorful Style Sheet', 'Creative Style Sheet'],
+      correctAnswer: 'Cascading Style Sheet'
+    },
+    {
+      question: 'What is the main function of a database management system?',
+      choices: ['Data storage', 'Data retrieval', 'Data manipulation', 'All of the above'],
+      correctAnswer: 'All of the above'
+    },
+    {
+      question: 'What does HTTPS stand for?',
+      choices: ['HyperText Transfer Protocol Security', 'HyperText Transfer Protocol Secure', 'Home Tool Transfer Protocol Secure', 'Hyperlinks Tool Transfer Protocol Security'],
+      correctAnswer: 'HyperText Transfer Protocol Secure'
+    },
+    {
+      question: 'What is the latest version of JavaScript?',
+      choices: ['ES5', 'ES6', 'ES7', 'ES2022'],
+      correctAnswer: 'ES2022'
+    },
+    {
+      question: 'Which technology is used to build dynamic web applications?',
+      choices: ['HTML', 'CSS', 'JavaScript', 'Java'],
+      correctAnswer: 'JavaScript'
+    },
+    {
+      question: 'What does API stand for?',
+      choices: ['Application Programming Interface', 'Advanced Programming Interface', 'Application Process Interface', 'Advanced Process Interface'],
+      correctAnswer: 'Application Programming Interface'
     }
   ];
+  
   
   let currentQuestion = 0;
   let score = 0;
