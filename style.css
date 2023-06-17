@@ -54,6 +54,9 @@ button{
     color:#fff;
     margin:10px;
 }
+.choice{
+    border-radius:10px;
+}
 
 .right{
     background-color:#fff;
@@ -63,4 +66,8 @@ button{
 .wrong{
     background-color: #fff;
     color:red;
+}
+#submit{
+    background-color:rgb(0, 255, 34);
+    color:#fff;
 }

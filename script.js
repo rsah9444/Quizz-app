@@ -14,22 +14,7 @@ const quizData = [
       question: 'Who painted the Mona Lisa?',
       choices: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh'],
       correctAnswer: 'Leonardo da Vinci'
-    },
-    {
-        question: 'Who painted the Mona Lisa?',
-        choices: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh'],
-        correctAnswer: 'Leonardo da Vinci'
-      },
-      {
-        question: 'Who painted the Mona Lisa?',
-        choices: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh'],
-        correctAnswer: 'Leonardo da Vinci'
-      },
-      {
-        question: 'Who painted the Mona Lisa?',
-        choices: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh'],
-        correctAnswer: 'Leonardo da Vinci'
-      }
+    }
   ];
   
   let currentQuestion = 0;
@@ -38,12 +23,14 @@ const quizData = [
   const questionElement = document.getElementById('question');
   const choicesElement = document.getElementById('choices');
   const submitButton = document.getElementById('submit');
+  const previousButton = document.getElementById('previous');
+  const nextButton = document.getElementById('next');
   const scoreElement = document.getElementById('score');
-  
+  previousButton.style.display='none';
   // Display the current question and choices
   function displayQuestion() {
     const currentQuiz = quizData[currentQuestion];
-    questionElement.textContent = currentQuiz.question;
+    questionElement.innerHTML = `<h3>${currentQuiz.question}</h3>`;
   
     choicesElement.innerHTML = '';
   
@@ -65,16 +52,47 @@ const quizData = [
   
     if (selectedAnswer === correctAnswer) {
       score++;
-
     }
+   
+    // submitButton.disabled = true;
+    // choicesElement.classList.add('disabled');
   
-    currentQuestion++;
-  
-    if (currentQuestion < quizData.length) {
-      displayQuestion();
+    if (currentQuestion < quizData.length - 1) {
+        nextButton.disabled = false;
+      goToNextQuestion();
     } else {
-      displayScore();
+      submitButton.style.display = 'block';
+      submitButton.disabled = false;
+      
     }
+  }
+  
+  // Go to the previous question
+  function goToPreviousQuestion() {
+    currentQuestion--;
+  
+    nextButton.disabled = false;
+    submitButton.style.display = 'none';
+  
+    if (currentQuestion === 0) {
+      previousButton.style.display = 'none';
+    }
+  
+    displayQuestion();
+  }
+  
+  // Go to the next question
+  function goToNextQuestion() {
+    currentQuestion++;
+    previousButton.style.display='inline-block';
+    previousButton.disabled = false;
+    submitButton.style.display = 'none';
+  
+    if (currentQuestion === quizData.length - 1) {
+      nextButton.style.display= 'none';
+    }
+  
+    displayQuestion();
   }
   
   // Display the final score
@@ -82,12 +100,16 @@ const quizData = [
     questionElement.textContent = 'Quiz completed!';
     choicesElement.innerHTML = '';
     submitButton.style.display = 'none';
+    previousButton.style.display= 'none';
+    nextButton.style.display = 'none';
     scoreElement.textContent = `Your score: ${score} out of ${quizData.length}`;
   }
   
   // Event listeners
-  submitButton.addEventListener('click', displayQuestion);
   choicesElement.addEventListener('click', checkAnswer);
+  previousButton.addEventListener('click', goToPreviousQuestion);
+  nextButton.addEventListener('click', goToNextQuestion);
+  submitButton.addEventListener('click', displayScore);
   
   // Start the quiz
   displayQuestion();
